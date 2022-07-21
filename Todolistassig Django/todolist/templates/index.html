@@ -1,0 +1,37 @@
+ {% extends 'base.html' %}
+ {% block title %}{% endblock title %}
+ {% block body %}
+ <form method="post" action="/index">
+  {% csrf_token %}
+    <div class="mb-3 mx-3 px-4">
+      <label for="exampleInputEmail1" class="form-label">Author</label>
+      <input type="text" class="form-control" name= "authname" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+    </div>
+    <div class="mb-3 mx-3 px-4">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input type="text" class="form-control" name= "description" id="exampleInputEmail1">
+    </div>
+    <div class="mb-3 mx-3 px-4">
+      <label for="exampleInputPassword1" class="form-label">Completion Status</label>
+      <input type="text" class="form-control" name= "compstatus" id="exampleInputEmail1">
+    </div>
+    <div class="mb-3 mx-3 px-4">
+      <label for="exampleInputPassword1" class="form-label">Completion Date</label>
+      <input type="text" class="form-control" name= "compdate"id="exampleInputEmail1">
+    </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mx-3 px-4" >Submit</button>
+    <br>
+    <br>
+    
+  </form>
+  <form method="post" action= "/display">
+    {% csrf_token %}
+  <button type="submit" class="btn btn-success mx-3 btn-lg py-5">DISPLAY LISTS</button>
+  </form>
+  
+ {% endblock body %}
+
+ 
