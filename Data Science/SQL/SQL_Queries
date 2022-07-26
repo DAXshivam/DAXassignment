@@ -1,0 +1,12 @@
+--1 
+SELECT CustomerId,FirstName,LastName,City FROM Customers WHERE FirstName LIKE 'N%' OR City='Prague';
+--2
+SELECT TrackId,Name,Composer,UnitPrice FROM Tracks WHERE UnitPrice BETWEEN 0.5 AND 1.0 AND Composer NOT LIKE '%T%'; 
+--3
+SELECT InvoiceDate,SUM(Total) AS SUM_BILL,AVG(Total) AS AVG_BILL FROM Invoices WHERE InvoiceDate LIKE '2012-06%' GROUP BY InvoiceDate;
+--4
+SELECT TrackId,SUM(Quantity) AS SUM_QUANTITY FROM invoice_items GROUP BY TrackId ORDER BY SUM_QUANTITY desc;
+--5
+SELECT ArtistId,Name FROM Artists WHERE ArtistId NOT IN (SELECT ArtistId FROM Albums WHERE AlbumId IN (SELECT AlbumId FROM Tracks WHERE TrackId IN (SELECT TrackId FROM Playlist_Track)));
+--6
+SELECT a.AlbumId,a.Title,COUNT(c.PlaylistId) AS count_playlist FROM Albums a INNER JOIN Tracks b ON a.AlbumId = b.AlbumId INNER JOIN Playlist_track c ON b.TrackId = c.TrackId GROUP BY a.AlbumId,a.Title having count_playlist>10;
