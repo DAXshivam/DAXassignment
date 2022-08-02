@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<body>
+    <div id="login-div">
+        @using(Html.BeginForm(FormMethod.Post)){
+<form action="/">
+  <label for="Id">Id</label><br>
+  <input type="text" id="id" name="id" value=""><br>
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="name" value=""><br>
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" value=""><br>
+  <label for="pno">Phone no:</label><br>
+  <input type="text" id="pno" name="pno" value=""><br>
+  <label for="email">Phone no:</label><br>
+  <input type="text" id="email" name="email" value=""><br /><br>
+  <input type="submit" value="Submit">
+</form> 
+        }
+</div> 
+</body>
